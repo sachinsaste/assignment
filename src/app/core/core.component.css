@@ -1,0 +1,32 @@
+.col-2,.col-3, .col-4{
+    padding: 10px;
+}
+.add-btn{
+    margin-top: 22px !important;
+}
+.delete-btn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+}
+.edit-btn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #ffd257;
+    color: #000;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+}
+  
+th, td {
+    text-align: left;
+    padding: 8px;
+    border: 1px solid #ddd;
+}
+  
+tr:nth-child(even){background-color: #f2f2f2}

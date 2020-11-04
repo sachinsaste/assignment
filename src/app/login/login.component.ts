@@ -15,16 +15,20 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     this.loginForm = new FormGroup({
       userName: new FormControl('', Validators.required),
-      password: new FormControl('', [Validators.required, Validators.minLength(6)])
+      password: new FormControl('', [Validators.required, Validators.minLength(6)]),
+      // validator: MustMatch('password', 'confirmPassword')
     });
   }
-  get f() { return this.loginForm.controls; }
+  // get f() { return this.loginForm.controls; }
+ 
+  get userName() { return this.loginForm.get('userName'); }
+  get password() { return this.loginForm.get('password'); }
   onSubmit(){
     this.submitted= true;
     if(this.loginForm.valid){
       this.router.navigate(['/home']);
       console.log("I am logged in");
+      // localStorage.setItem('user', true);
     }
-
-}
+  }
 }

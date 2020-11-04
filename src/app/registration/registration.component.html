@@ -1,1 +1,41 @@
-<p>reg works!</p>
+
+
+<div class="col-6 registration-container">
+    <form class="modal-content animate" [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+        <div class="container">
+          <label for="fname"><b>First Name</b></label>
+          <input type="text" formControlName="firstName" placeholder="Enter First name" name="fname" required>
+          <div *ngIf="firstName.invalid && submitted" class="error-msg">
+            <div *ngIf="firstName.errors.required"> First Name is required. </div>
+          </div>
+
+          <label for="lname"><b>Last Name</b></label>
+          <input type="text" formControlName="lastName" placeholder="Enter Last name" name="lname" required>
+          <div *ngIf="lastName.invalid && submitted" class="error-msg">
+            <div *ngIf="lastName.errors.required"> Last Name is required. </div>
+          </div>
+
+          <label for="uname"><b>Email</b></label>
+          <input type="text" formControlName="email" placeholder="Enter Email" name="email" required>
+          <div *ngIf="email.invalid && submitted" class="error-msg">
+            <div *ngIf="email.errors.required"> Email is required. </div>
+          </div>
+
+          <label for="psw"><b>Password</b></label>
+          <input type="password" formControlName="password" placeholder="Enter Password" name="psw" required>
+          <div *ngIf="password.invalid && submitted" class="error-msg">
+            <div *ngIf="password.errors.required "> Password is required. </div>
+            <div *ngIf="password.errors.minlength">Password must be at least 6 characters</div>
+          </div>
+
+          <button type="submit" >Register</button>
+        </div>
+    
+        <div class="container" style="background-color:#f1f1f1">
+            <label>
+                <input type="checkbox" checked="checked" name="remember"> Remember me
+                <span class="sign-up">Existing user <a href="#" routerLink="/login">Sign In</a></span>
+              </label>
+        </div>
+      </form>
+    </div>

@@ -1,1 +1,41 @@
-<p>core works!</p>
+<div class="container">
+    <form class="modal-content animate" #linkForm="ngForm">
+        <div class="row">
+            <div class="col-3">
+                <label for="title"><b>Title</b></label>
+                <input type="text" placeholder="Enter Title" name="title" [(ngModel)]="linkObj.title">
+            </div>
+            <div class="col-3">
+                <label for="link"><b>Link</b></label>
+                <input type="text" placeholder="Enter Link" name="link" [(ngModel)]="linkObj.link">
+            </div>
+            <div class="col-4">
+                <label for="desc"><b>Description</b></label>
+                <input type="text" placeholder="Enter Description" name="desc" [(ngModel)]="linkObj.desc">
+            </div>
+            <div class="col-2">
+                <button class="add-btn" type="button" (click)="addLink(linkForm.value, linkForm)" *ngIf ="!isEdit">Add Link</button>
+                <button class="add-btn" type="button" (click)="updateLink(linkForm)" *ngIf ="isEdit">Update Link</button>
+            </div>
+        </div>
+    </form>
+    <br>
+    <div style="overflow-x:auto; padding: 20px;">
+        <table>
+            <tr>
+                <th>Title</th>
+                <th>Link</th>
+                <th>Description</th>
+                <th></th>
+                <th></th>
+            </tr>
+            <tr *ngFor="let link of allLinks">
+                <td>{{link.title}}</td>
+                <td>{{link.link}}</td>
+                <td>{{link.desc}}</td>
+                <td style="width:10%"><button class="edit-btn" (click)="editLink(link)">Edit</button></td>
+                <td style="width:10%"><button class="delete-btn" (click)="deleteLink(link)">Delete</button></td>
+            </tr>
+        </table>
+    </div>
+</div>
