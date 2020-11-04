@@ -16,7 +16,6 @@ export class LoginComponent implements OnInit {
     this.loginForm = new FormGroup({
       userName: new FormControl('', Validators.required),
       password: new FormControl('', [Validators.required, Validators.minLength(6)]),
-      // validator: MustMatch('password', 'confirmPassword')
     });
   }
   // get f() { return this.loginForm.controls; }
@@ -28,7 +27,6 @@ export class LoginComponent implements OnInit {
     if(this.loginForm.valid){
       this.router.navigate(['/home']);
       console.log("I am logged in");
-      // localStorage.setItem('user', true);
     }
   }
 }
